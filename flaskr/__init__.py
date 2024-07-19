@@ -1,9 +1,21 @@
 # Imports
 from flask import Flask, render_template, request, redirect, url_for
+from g4f.client import Client
+from g4f.Provider import You
+import asyncio
+asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 # Print Input
 def printInput(input):
-    print("Input: " + input)
+
+    client = Client()
+    prompt = "Give me 5 fun facts about the following topic: " + input
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",  
+        provider=You, 
+        messages=[{"role": "user", "content": prompt}],
+    )
+    print(response.choices[0].message.content)
 
 # Creating Flask App
 app = Flask(__name__)
