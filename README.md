@@ -36,5 +36,5 @@ pip install -r requirements.txt
 ```
 * Run the Flask Application
 ```
-flask --app flaskr:app run --debug
+flask --app frontend.flaskr:app run --debug
 ```
