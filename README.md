@@ -1,4 +1,4 @@
-# Project Title
+# Automated Content Application 
 
 This repository contains an application built using Python and Flask which utilizes generative AI for automated content generation.
 
