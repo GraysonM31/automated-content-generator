@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request
 from backend.gpt import askGPT
 from backend.videos import getStockVideos
+from backend.voice import getVoice
 import os
 
 # Creating Flask App
@@ -19,7 +20,8 @@ def index():
         script = askGPT(input)
         # Get Stock Videos
         getStockVideos(input, 5)
-
+        # Get Audio
+        getVoice(script)
 
         # Print Script
         print("\nScript:\n\n" + script + "\n")
