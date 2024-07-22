@@ -3,8 +3,7 @@ import requests
 import os
 from dotenv import load_dotenv
 
-# Variables
-# Load environment variables from .env file
+# Load Environment Variables
 load_dotenv('.venv')
 
 # Access the API_KEY variable
@@ -44,18 +43,15 @@ def getStockVideos(query, num):
         urls = response["videos"][i]["video_files"]
         temp_video_url = ""
         
-        # Create the temp directory if it doesn't exist
+        # Create "temp" Directory
         if not os.path.exists("temp"):
             os.makedirs("temp")
-
-        # TESTING !!!!!!!!!!!!!!
+        # Remove Files in "temp" Directory
         if os.path.exists("temp"):
             files = os.listdir("temp")
             if files:
                 for file in files:
                     os.remove(os.path.join("temp", file))
-
-
 
         # Itterate Through Videos
         for video in urls:
