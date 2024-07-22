@@ -1,8 +1,14 @@
 # Imports
 import requests
+import os
+from dotenv import load_dotenv
 
 # Variables
-key = 'ovLulnSguzJN0lFRIXa3ktFfV5HCQ6NkIkQiCrVB4IgGNBzK1zaJ2gUv'
+# Load environment variables from .env file
+load_dotenv('.venv')
+
+# Access the API_KEY variable
+key = os.getenv('P_API_KEY', "ovLulnSguzJN0lFRIXa3ktFfV5HCQ6NkIkQiCrVB4IgGNBzK1zaJ2gUv")
 
 def downloadVideo(url, filename):
 
@@ -38,6 +44,19 @@ def getStockVideos(query, num):
         urls = response["videos"][i]["video_files"]
         temp_video_url = ""
         
+        # Create the temp directory if it doesn't exist
+        if not os.path.exists("temp"):
+            os.makedirs("temp")
+
+        # TESTING !!!!!!!!!!!!!!
+        if os.path.exists("temp"):
+            files = os.listdir("temp")
+            if files:
+                for file in files:
+                    os.remove(os.path.join("temp", file))
+
+
+
         # Itterate Through Videos
         for video in urls:
 
