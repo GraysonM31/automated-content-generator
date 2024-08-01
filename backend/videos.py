@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv('.venv')
 
 # Access the API_KEY variable
-key = os.getenv('P_API_KEY', "ovLulnSguzJN0lFRIXa3ktFfV5HCQ6NkIkQiCrVB4IgGNBzK1zaJ2gUv")
+key = os.getenv('P_API_KEY', "XXX")
 
 def downloadVideo(url, filename):
 
